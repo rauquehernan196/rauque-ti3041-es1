@@ -4,16 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Ferretería - Catálogo{% endblock %}</title>
+
+    <!-- ENLACE DE BOOTSTRAP (Crucial para que funcionen los estilos) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="bg-light">
-    <nav class="navbar navbar-dark bg-dark mb-4">
+<body class="bg-light d-flex flex-column min-vh-100">
+
+    <!-- ENCABEZADO -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+            <div class="container">
+                <a class="navbar-brand fw-bold fs-4" href="{% url 'lista' %}">🛠️ Ferretería Central</a>
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link active" href="{% url 'lista' %}">Catálogo</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="container flex-grow-1 mb-5">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- PIE DE PÁGINA (Mejora visual libre) -->
+    <footer class="bg-dark text-white text-center py-3 mt-auto">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="{% url 'lista' %}">🛠️ Ferretería Central</a>
+            <p class="mb-0 small">&copy; 2026 Ferretería Central — Todos los derechos reservados.</p>
         </div>
-    </nav>
-    <div class="container mb-5">
-        {% block content %}{% endblock %}
-    </div>
+    </footer>
+
 </body>
 </html>

@@ -12,7 +12,17 @@ def cargar_datos():
 
 def lista_productos(request):
     productos = cargar_datos()
-    return render(request, 'catalogo/lista.html', {'productos': productos})
+    
+    # Cálculos para el resumen de la Etapa 3
+    total_registros = len(productos)
+    disponibles = sum(1 for p in productos if p.get('stock', 0) > 0)
+
+    context = {
+        'productos': productos,
+        'total_registros': total_registros,
+        'disponibles': disponibles,
+    }
+    return render(request, 'catalogo/lista.html', context)
 
 def detalle_producto(request, producto_id):
     productos = cargar_datos()
