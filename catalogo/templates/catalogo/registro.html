@@ -1,0 +1,124 @@
+{% extends 'catalogo/base.html' %}
+
+{% block title %}Registrarse - Ferretería Central{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center align-items-center min-vh-100">
+    <div class="col-md-6 col-lg-5">
+        <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+            <!-- ENCABEZADO DEL FORMULARIO -->
+            <div class="card-header bg-dark text-white p-5">
+                <h2 class="mb-0 fw-bold text-center">📝 Crear Cuenta</h2>
+            </div>
+            
+            <!-- CUERPO DEL FORMULARIO -->
+            <div class="card-body p-5">
+                <form method="post" novalidate>
+                    {% csrf_token %}
+                    
+                    <!-- CAMPO: NOMBRE -->
+                    <div class="mb-3">
+                        <label for="id_first_name" class="form-label fw-bold">Nombre</label>
+                        {{ form.first_name }}
+                        {% if form.first_name.errors %}
+                            <div class="alert alert-danger small mt-1">
+                                {{ form.first_name.errors }}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <!-- CAMPO: APELLIDO -->
+                    <div class="mb-3">
+                        <label for="id_last_name" class="form-label fw-bold">Apellido</label>
+                        {{ form.last_name }}
+                        {% if form.last_name.errors %}
+                            <div class="alert alert-danger small mt-1">
+                                {{ form.last_name.errors }}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <!-- CAMPO: USERNAME -->
+                    <div class="mb-3">
+                        <label for="id_username" class="form-label fw-bold">Nombre de Usuario</label>
+                        {{ form.username }}
+                        {% if form.username.errors %}
+                            <div class="alert alert-danger small mt-1">
+                                {{ form.username.errors }}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <!-- CAMPO: EMAIL -->
+                    <div class="mb-3">
+                        <label for="id_email" class="form-label fw-bold">Correo Electrónico</label>
+                        {{ form.email }}
+                        {% if form.email.errors %}
+                            <div class="alert alert-danger small mt-1">
+                                {{ form.email.errors }}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <!-- CAMPO: PASSWORD -->
+                    <div class="mb-3">
+                        <label for="id_password1" class="form-label fw-bold">Contraseña</label>
+                        {{ form.password1 }}
+                        {% if form.password1.errors %}
+                            <div class="alert alert-danger small mt-1">
+                                {{ form.password1.errors }}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <!-- CAMPO: CONFIRMAR PASSWORD -->
+                    <div class="mb-4">
+                        <label for="id_password2" class="form-label fw-bold">Confirmar Contraseña</label>
+                        {{ form.password2 }}
+                        {% if form.password2.errors %}
+                            <div class="alert alert-danger small mt-1">
+                                {{ form.password2.errors }}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <!-- BOTÓN DE ENVÍO -->
+                    <button type="submit" class="btn btn-success btn-lg w-100 rounded-3 fw-bold mb-3">
+                        Registrarse
+                    </button>
+                </form>
+                
+                <!-- SEPARADOR -->
+                <hr class="my-4">
+                
+                <!-- ENLACE A LOGIN -->
+                <p class="text-center text-muted mb-0">
+                    ¿Ya tienes cuenta? 
+                    <a href="{% url 'login' %}" class="text-primary text-decoration-none fw-bold">
+                        Inicia sesión
+                    </a>
+                </p>
+                
+                <!-- ENLACE A LANDING -->
+                <p class="text-center mt-3">
+                    <a href="{% url 'landing' %}" class="text-secondary text-decoration-none small">
+                        ← Volver al inicio
+                    </a>
+                </p>
+            </div>
+        </div>
+        
+        <!-- INFORMACIÓN DE SEGURIDAD -->
+        <div class="mt-4 p-4 bg-light rounded-4">
+            <h6 class="fw-bold mb-3">🔒 Requisitos de contraseña:</h6>
+            <ul class="small list-unstyled text-muted">
+                <li>✓ Mínimo 8 caracteres</li>
+                <li>✓ No puede ser solo números</li>
+                <li>✓ No debe ser igual al usuario</li>
+                <li>✓ Debe contener mayúsculas y minúsculas</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

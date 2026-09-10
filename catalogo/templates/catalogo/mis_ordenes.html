@@ -1,0 +1,109 @@
+{% extends 'catalogo/base.html' %}
+
+{% block title %}Mis Órdenes - Ferretería Central{% endblock %}
+
+{% block content %}
+<div class="my-5">
+    <h1 class="fw-bold mb-4">📋 Mis Órdenes de Compra</h1>
+    
+    {% if ordenes %}
+        <div class="row">
+            {% for orden in ordenes %}
+            <div class="col-lg-8 mx-auto mb-4">
+                <div class="card border-0 shadow-lg rounded-4">
+                    <!-- HEADER DE LA ORDEN -->
+                    <div class="card-header bg-dark text-white p-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <h5 class="mb-1 fw-bold">📦 Orden {{ orden.numero_orden }}</h5>
+                                <small>Fecha: {{ orden.fecha_creacion|date:"d/m/Y H:i" }}</small>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <span class="badge bg-success fs-6">{{ orden.get_estado_display }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- CONTENIDO DE LA ORDEN -->
+                    <div class="card-body p-4">
+                        <!-- RESUMEN RÁPIDO -->
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <p class="text-muted small mb-1">Cantidad de Artículos</p>
+                                <h5 class="fw-bold">{{ orden.cantidad_items }}</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="text-muted small mb-1">Total de la Orden</p>
+                                <h5 class="text-success fw-bold">${{ orden.total }}</h5>
+                            </div>
+                        </div>
+                        
+                        <hr>
+                        
+                        <!-- ITEMS DE LA ORDEN -->
+                        <h6 class="fw-bold mb-3">Productos:</h6>
+                        <div class="table-responsive">
+                            <table class="table table-sm mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Producto</th>
+                                        <th>Precio Unit.</th>
+                                        <th>Cantidad</th>
+                                        <th>Subtotal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for item in orden.items.all %}
+                                    <tr>
+                                        <td>{{ item.nombre_producto }}</td>
+                                        <td>${{ item.precio_unitario }}</td>
+                                        <td>{{ item.cantidad }}</td>
+                                        <td><strong>${{ item.obtener_subtotal }}</strong></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- FOOTER CON ACCIONES -->
+                    <div class="card-footer bg-light p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">
+                                ID de Orden: <code>{{ orden.id }}</code>
+                            </small>
+                            <a href="{% url 'compra_exitosa' orden.id %}" class="btn btn-sm btn-outline-primary">
+                                Ver Detalles
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <!-- SIN ÓRDENES -->
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card border-0 shadow-lg rounded-4 text-center p-5">
+                    <h2 class="mb-4">📦 No tienes órdenes</h2>
+                    <p class="text-muted mb-4">
+                        Aún no has realizado ninguna compra. ¡Comienza tu compra ahora!
+                    </p>
+                    <a href="{% url 'lista' %}" class="btn btn-primary btn-lg fw-bold rounded-3">
+                        🏪 Ir al Catálogo
+                    </a>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    
+    <!-- BOTÓN VOLVER -->
+    <div class="text-center mt-4">
+        <a href="{% url 'lista' %}" class="btn btn-outline-secondary btn-lg fw-bold rounded-3">
+            ← Volver al Catálogo
+        </a>
+    </div>
+</div>
+
+{% endblock %}

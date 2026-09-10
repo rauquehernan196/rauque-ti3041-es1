@@ -7,20 +7,70 @@
 
     <!-- ENLACE DE BOOTSTRAP (Crucial para que funcionen los estilos) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex: 1;
+        }
+    </style>
 </head>
-<body class="bg-light d-flex flex-column min-vh-100">
+<body class="bg-light">
 
     <!-- ENCABEZADO -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
             <div class="container">
-                <a class="navbar-brand fw-bold fs-4" href="{% url 'lista' %}">🛠️ Ferretería Central</a>
-                <div class="navbar-nav ms-auto">
-                    <a class="nav-link active" href="{% url 'lista' %}">Catálogo</a>
+                <a class="navbar-brand fw-bold fs-4" href="{% url 'landing' %}">🛠️ Ferretería Central</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="navbar-nav ms-auto">
+                        {% if user.is_authenticated %}
+                            <a class="nav-link" href="{% url 'lista' %}">📦 Catálogo</a>
+                            <a class="nav-link" href="{% url 'ver_carrito' %}">
+                                🛒 Carrito
+                                {% if user.carrito.obtener_cantidad_items > 0 %}
+                                    <span class="badge bg-danger">{{ user.carrito.obtener_cantidad_items }}</span>
+                                {% endif %}
+                            </a>
+                            <a class="nav-link" href="{% url 'mis_ordenes' %}">📋 Mis Órdenes</a>
+                            {% if user.perfil.es_admin %}
+                                <a class="nav-link" href="{% url 'panel_admin' %}">⚙️ Panel Admin</a>
+                            {% endif %}
+                            <div class="nav-link dropdown" style="display: inline-block;">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+                                    👤 {{ user.first_name|default:user.username }}
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="{% url 'logout' %}">Cerrar sesión</a></li>
+                                </ul>
+                            </div>
+                        {% else %}
+                            <a class="nav-link" href="{% url 'login' %}">🔐 Iniciar sesión</a>
+                            <a class="nav-link" href="{% url 'registro' %}">📝 Registrarse</a>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </nav>
     </header>
+
+    <!-- MENSAJES DE ALERTAS -->
+    {% if messages %}
+    <div class="container mt-3">
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags|default:'info' }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
 
     <!-- CONTENIDO PRINCIPAL -->
     <main class="container flex-grow-1 mb-5">
@@ -34,6 +84,9 @@
             <p class="mb-0 small">&copy; 2026 Ferretería Central — Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <!-- BOOTSTRAP JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

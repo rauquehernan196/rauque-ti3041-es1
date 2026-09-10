@@ -1,0 +1,154 @@
+{% extends 'catalogo/base.html' %}
+{% load static %}
+
+{% block title %}Ferretería Central - Inicio{% endblock %}
+
+{% block content %}
+<div class="row align-items-center min-vh-100 my-5">
+    <!-- SECCIÓN IZQUIERDA: INFORMACIÓN -->
+    <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="pe-lg-5">
+            <h1 class="display-4 fw-bold mb-4">
+                🛠️ Bienvenido a <span class="text-danger">Ferretería Central</span>
+            </h1>
+            
+            <p class="lead text-muted mb-4">
+                Tu tienda en línea confiable para todas tus necesidades de herramientas y materiales de construcción.
+            </p>
+            
+            <!-- DESCRIPCIÓN GENERAL -->
+            <div class="mb-5">
+                <h3 class="fw-bold mb-3">Sobre nosotros</h3>
+                <p class="text-secondary">
+                    En Ferretería Central ofrecemos una amplia selección de herramientas de calidad, 
+                    accesorios profesionales y materiales para construcción y reparación. Desde profesionales 
+                    hasta aficionados al DIY, tenemos todo lo que necesitas.
+                </p>
+            </div>
+            
+            <!-- PÚBLICO OBJETIVO -->
+            <div class="mb-5">
+                <h3 class="fw-bold mb-3">Dirigido a:</h3>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item border-0 ps-0">
+                        <span class="badge bg-success me-2">✓</span> <strong>Profesionales</strong> - Herramientas de precisión para trabajos especializados
+                    </li>
+                    <li class="list-group-item border-0 ps-0">
+                        <span class="badge bg-success me-2">✓</span> <strong>Contratistas</strong> - Grandes volúmenes y equipos industriales
+                    </li>
+                    <li class="list-group-item border-0 ps-0">
+                        <span class="badge bg-success me-2">✓</span> <strong>Aficionados al DIY</strong> - Proyectos caseros y reparaciones
+                    </li>
+                    <li class="list-group-item border-0 ps-0">
+                        <span class="badge bg-success me-2">✓</span> <strong>Emprendedores</strong> - Precios mayoristas y paquetes especiales
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- CARACTERÍSTICAS DESTACADAS -->
+            <div class="mb-5">
+                <h3 class="fw-bold mb-3">¿Por qué elegirnos?</h3>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="p-3 bg-white rounded-3 border">
+                            <h5 class="mb-2">🚀 Envío Rápido</h5>
+                            <p class="small text-muted mb-0">Entrega en 24-48 horas</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-3 bg-white rounded-3 border">
+                            <h5 class="mb-2">💰 Precios Competitivos</h5>
+                            <p class="small text-muted mb-0">Mejores ofertas del mercado</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-3 bg-white rounded-3 border">
+                            <h5 class="mb-2">✅ Garantía Ofrecida</h5>
+                            <p class="small text-muted mb-0">Todos nuestros productos tienen garantía</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-3 bg-white rounded-3 border">
+                            <h5 class="mb-2">👥 Atención al Cliente</h5>
+                            <p class="small text-muted mb-0">Soporte disponible 24/7</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- SECCIÓN DERECHA: OPCIONES DE ACCESO -->
+    <div class="col-lg-6">
+        <div class="card border-0 shadow-lg rounded-4 overflow-hidden mb-4">
+            <div class="card-header bg-dark text-white p-5">
+                <h3 class="mb-0 fw-bold">🔐 Acceso a tu cuenta</h3>
+            </div>
+            <div class="card-body p-5">
+                <p class="text-muted mb-4 text-center">
+                    Inicia sesión o regístrate para explorar nuestro catálogo completo
+                </p>
+                
+                <!-- OPCIONES DE LOGIN -->
+                <div class="d-grid gap-3">
+                    <a href="{% url 'login' %}" class="btn btn-primary btn-lg rounded-3 fw-bold">
+                        🔑 Iniciar Sesión
+                    </a>
+                    <p class="text-center text-muted small my-3">¿No tienes cuenta?</p>
+                    <a href="{% url 'registro' %}" class="btn btn-outline-primary btn-lg rounded-3 fw-bold">
+                        📝 Registrarse (Gratis)
+                    </a>
+                </div>
+                
+                <!-- INFORMACIÓN DE TIPOS DE USUARIO -->
+                <hr class="my-5">
+                
+                <h5 class="fw-bold mb-3">Tipos de usuarios:</h5>
+                
+                <!-- USUARIO NORMAL -->
+                <div class="mb-4 p-3 bg-light rounded-3">
+                    <h6 class="fw-bold mb-2">👤 Usuario Normal</h6>
+                    <ul class="small list-unstyled text-muted">
+                        <li>✓ Explorar catálogo completo</li>
+                        <li>✓ Ver detalles de productos</li>
+                        <li>✓ Gestionar tu perfil</li>
+                        <li>✓ Realizar compras</li>
+                    </ul>
+                </div>
+                
+                <!-- ADMINISTRADOR -->
+                <div class="p-3 bg-danger bg-opacity-10 rounded-3">
+                    <h6 class="fw-bold mb-2">⚙️ Administrador</h6>
+                    <ul class="small list-unstyled text-muted">
+                        <li>✓ Panel de administración</li>
+                        <li>✓ Gestionar stock de productos</li>
+                        <li>✓ Ver todas las cuentas registradas</li>
+                        <li>✓ Reportes y estadísticas</li>
+                    </ul>
+                    <p class="small text-muted mt-2 mb-0">
+                        <em>*El rol de administrador se asigna por invitación especial</em>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TARJETA CON ESTADÍSTICAS -->
+        <div class="card border-0 bg-white rounded-4 overflow-hidden">
+            <div class="card-body p-4">
+                <h5 class="fw-bold mb-3">📊 Nuestro Catálogo</h5>
+                <div class="row text-center">
+                    <div class="col-6">
+                        <h4 class="text-success fw-bold">40+</h4>
+                        <p class="small text-muted">Productos</p>
+                    </div>
+                    <div class="col-6">
+                        <h4 class="text-warning fw-bold">9</h4>
+                        <p class="small text-muted">Categorías</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

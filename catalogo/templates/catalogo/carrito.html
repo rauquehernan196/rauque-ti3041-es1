@@ -1,0 +1,148 @@
+{% extends 'catalogo/base.html' %}
+
+{% block title %}Mi Carrito - Ferretería Central{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <h1 class="fw-bold">🛒 Mi Carrito de Compras</h1>
+    </div>
+</div>
+
+{% if items_con_disponibilidad %}
+    <div class="row">
+        <!-- TABLA DE ITEMS -->
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-lg rounded-4 mb-4">
+                <div class="card-body p-4">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Precio Unitario</th>
+                                    <th>Cantidad</th>
+                                    <th>Subtotal</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item_data in items_con_disponibilidad %}
+                                    {% with item=item_data.item %}
+                                    <tr class="{% if not item_data.hay_stock %}table-danger{% endif %}">
+                                        <td>
+                                            <strong>{{ item.nombre_producto }}</strong>
+                                            {% if not item_data.hay_stock %}
+                                                <div class="badge bg-danger mt-1">⚠️ Sin stock</div>
+                                            {% endif %}
+                                        </td>
+                                        <td>${{ item.precio }}</td>
+                                        <td>
+                                            <form method="post" action="{% url 'actualizar_cantidad' item.id %}" 
+                                                  class="d-flex gap-2 align-items-center" style="width: 150px;">
+                                                {% csrf_token %}
+                                                <input type="number" name="cantidad" min="1" 
+                                                       max="{{ item_data.stock_disponible }}" value="{{ item.cantidad }}" 
+                                                       class="form-control form-control-sm" style="width: 70px;">
+                                                <button type="submit" class="btn btn-sm btn-outline-primary">
+                                                    ✓
+                                                </button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <strong>${{ item.obtener_subtotal }}</strong>
+                                        </td>
+                                        <td>
+                                            <form method="post" action="{% url 'remover_carrito' item.id %}" 
+                                                  class="d-inline">
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn btn-sm btn-danger" 
+                                                        title="Remover">
+                                                    🗑️
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    {% endwith %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- BOTÓN VOLVER AL CATÁLOGO -->
+            <a href="{% url 'lista' %}" class="btn btn-outline-secondary btn-lg">
+                ← Volver al Catálogo
+            </a>
+        </div>
+        
+        <!-- RESUMEN Y CHECKOUT -->
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-lg rounded-4 sticky-top" style="top: 20px;">
+                <div class="card-header bg-dark text-white p-4">
+                    <h5 class="mb-0 fw-bold">📊 Resumen del Carrito</h5>
+                </div>
+                <div class="card-body p-4">
+                    <!-- ITEMS -->
+                    <div class="mb-3 pb-3 border-bottom">
+                        <p class="text-muted mb-1">Cantidad de items:</p>
+                        <h4 class="fw-bold">{{ cantidad_items }}</h4>
+                    </div>
+                    
+                    <!-- TOTAL -->
+                    <div class="mb-4 pb-4 border-bottom">
+                        <p class="text-muted mb-1">Total a pagar:</p>
+                        <h2 class="text-success fw-bold">${{ total }}</h2>
+                    </div>
+                    
+                    <!-- ADVERTENCIA DE STOCK -->
+                    {% for item_data in items_con_disponibilidad %}
+                        {% if not item_data.hay_stock %}
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <strong>⚠️ Problema de stock:</strong><br>
+                                <strong>{{ item_data.item.nombre_producto }}</strong> solo tiene <strong>{{ item_data.stock_disponible }} u.</strong> disponible(s)
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                    
+                    <!-- BOTÓN PROCESAR COMPRA -->
+                    <form method="post" action="{% url 'procesar_compra' %}" class="d-grid gap-2">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-success btn-lg fw-bold rounded-3" 
+                                {% if hay_problema_stock %}disabled title="Revisa los problemas de stock mostrados arriba"{% endif %}>
+                            {% if hay_problema_stock %}
+                                ❌ No puedes comprar (revisar stock)
+                            {% else %}
+                                ✅ Confirmar Compra
+                            {% endif %}
+                        </button>
+                    </form>
+                    
+                    <p class="text-center text-muted small mt-3 mb-0">
+                        El stock se verifica en el momento de la compra
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% else %}
+    <!-- CARRITO VACÍO -->
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card border-0 shadow-lg rounded-4 text-center p-5">
+                <h2 class="mb-4">🛒 Tu carrito está vacío</h2>
+                <p class="text-muted mb-4">
+                    No has agregado ningún producto aún. ¡Comienza tu compra ahora!
+                </p>
+                <a href="{% url 'lista' %}" class="btn btn-primary btn-lg fw-bold rounded-3">
+                    🏪 Ir al Catálogo
+                </a>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+{% endblock %}

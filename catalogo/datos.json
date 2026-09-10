@@ -1,42 +1,322 @@
 [
-  {"id": 1, "nombre": "Martillo de Uña 16 oz", "categoria": "Herramientas Manuales", "precio": 8990, "stock": 25, "imagen": "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=400&h=300&fit=crop"},
-  {"id": 2, "nombre": "Destornillador Phillips #2", "categoria": "Herramientas Manuales", "precio": 3490, "stock": 40, "imagen": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=400&h=300&fit=crop"},
-  {"id": 3, "nombre": "Alicate Universal 8\"", "categoria": "Herramientas Manuales", "precio": 6990, "stock": 18, "imagen": "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=400&h=300&fit=crop"},
-  {"id": 4, "nombre": "Llave Ajustable 10\"", "categoria": "Herramientas Manuales", "precio": 9990, "stock": 15, "imagen": "https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=400&h=300&fit=crop"},
-  {"id": 5, "nombre": "Juego de Llaves Allen 9 pzs", "categoria": "Herramientas Manuales", "precio": 7490, "stock": 30, "imagen": "https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=400&h=300&fit=crop"},
-  {"id": 6, "nombre": "Taladro Percutor 650W", "categoria": "Herramientas Eléctricas", "precio": 39990, "stock": 10, "imagen": "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=400&h=300&fit=crop"},
-  {"id": 7, "nombre": "Esmeril Angular 4.5\"", "categoria": "Herramientas Eléctricas", "precio": 34990, "stock": 12, "imagen": "https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=400&h=300&fit=crop"},
-  {"id": 8, "nombre": "Sierra Caladora 550W", "categoria": "Herramientas Eléctricas", "precio": 29990, "stock": 8, "imagen": "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=400&h=300&fit=crop"},
-  {"id": 9, "nombre": "Lijadora Orbital 200W", "categoria": "Herramientas Eléctricas", "precio": 24990, "stock": 14, "imagen": "https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=400&h=300&fit=crop"},
-  {"id": 10, "nombre": "Atornillador Inalámbrico 12V", "categoria": "Herramientas Eléctricas", "precio": 45990, "stock": 0, "imagen": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=400&h=300&fit=crop"},
-  {"id": 11, "nombre": "Caja de Clavos 2\" (1kg)", "categoria": "Fijaciones", "precio": 2990, "stock": 50, "imagen": "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=400&h=300&fit=crop"},
-  {"id": 12, "nombre": "Tornillo Cobre Madera 4x40mm (100 pzs)", "categoria": "Fijaciones", "precio": 3990, "stock": 65, "imagen": "https://images.unsplash.com/photo-1608613304899-ea8098577e38?w=400&h=300&fit=crop"},
-  {"id": 13, "nombre": "Tarugos Multiuso 8mm (50 pzs)", "categoria": "Fijaciones", "precio": 1990, "stock": 80, "imagen": "https://images.unsplash.com/photo-1608613304899-ea8098577e38?w=400&h=300&fit=crop"},
-  {"id": 14, "nombre": "Perno Coche 3/8x3\" con Tuerca", "categoria": "Fijaciones", "precio": 890, "stock": 120, "imagen": "https://images.unsplash.com/photo-1608613304899-ea8098577e38?w=400&h=300&fit=crop"},
-  {"id": 15, "nombre": "Goma y Silicona Transparente 300ml", "categoria": "Adhesivos y Sellantes", "precio": 4290, "stock": 35, "imagen": "https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=400&h=300&fit=crop"},
-  {"id": 16, "nombre": "Adhesivo de Contacto 250g", "categoria": "Adhesivos y Sellantes", "precio": 3890, "stock": 22, "imagen": "https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=400&h=300&fit=crop"},
-  {"id": 17, "nombre": "Cinta Enmascarar 24mm x 50m", "categoria": "Pintura y Acabados", "precio": 1490, "stock": 45, "imagen": "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=400&h=300&fit=crop"},
-  {"id": 18, "nombre": "Pintura Esmalte Sintético 1 Galón", "categoria": "Pintura y Acabados", "precio": 21990, "stock": 11, "imagen": "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=400&h=300&fit=crop"},
-  {"id": 19, "nombre": "Brocha 3 Pulgadas", "categoria": "Pintura y Acabados", "precio": 2490, "stock": 28, "imagen": "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=400&h=300&fit=crop"},
-  {"id": 20, "nombre": "Rodillo Antigota 18cm", "categoria": "Pintura y Acabados", "precio": 3990, "stock": 19, "imagen": "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=400&h=300&fit=crop"},
-  {"id": 21, "nombre": "Cerradura de Pomo para Dormitorio", "categoria": "Cerrajería", "precio": 8990, "stock": 16, "imagen": "https://images.unsplash.com/photo-1558002038-1055907df827?w=400&h=300&fit=crop"},
-  {"id": 22, "nombre": "Candado de Bronce 40mm", "categoria": "Cerrajería", "precio": 5490, "stock": 0, "imagen": "https://images.unsplash.com/photo-1558002038-1055907df827?w=400&h=300&fit=crop"},
-  {"id": 23, "nombre": "Cinta Aislante Negra 20m", "categoria": "Electricidad", "precio": 990, "stock": 90, "imagen": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=300&fit=crop"},
-  {"id": 24, "nombre": "Cable Unipolar 2.5mm (25m)", "categoria": "Electricidad", "precio": 18990, "stock": 13, "imagen": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=300&fit=crop"},
-  {"id": 25, "nombre": "Interruptor Doble Sobrepuesto", "categoria": "Electricidad", "precio": 2190, "stock": 40, "imagen": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=300&fit=crop"},
-  {"id": 26, "nombre": "Enchufe Hembra Triple", "categoria": "Electricidad", "precio": 2990, "stock": 32, "imagen": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=300&fit=crop"},
-  {"id": 27, "nombre": "Llave de Paso PVC 1/2\"", "categoria": "Gasfitería", "precio": 1890, "stock": 50, "imagen": "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=400&h=300&fit=crop"},
-  {"id": 28, "nombre": "Teflón de Gasfitería 3/4\"", "categoria": "Gasfitería", "precio": 590, "stock": 100, "imagen": "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=400&h=300&fit=crop"},
-  {"id": 29, "nombre": "Sifón Lavaplatos Flexible", "categoria": "Gasfitería", "precio": 4990, "stock": 21, "imagen": "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=400&h=300&fit=crop"},
-  {"id": 30, "nombre": "Flexible para Agua 40cm", "categoria": "Gasfitería", "precio": 2490, "stock": 38, "imagen": "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=400&h=300&fit=crop"},
-  {"id": 31, "nombre": "Huincha de Medir 5 metros", "categoria": "Medición", "precio": 3290, "stock": 27, "imagen": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=400&h=300&fit=crop"},
-  {"id": 32, "nombre": "Nivel de Burbuja 24\"", "categoria": "Medición", "precio": 7990, "stock": 14, "imagen": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=400&h=300&fit=crop"},
-  {"id": 33, "nombre": "Lentes de Seguridad Transparentes", "categoria": "Protección Personal", "precio": 1990, "stock": 60, "imagen": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=300&fit=crop"},
-  {"id": 34, "nombre": "Guantes de Cuero Cabritilla", "categoria": "Protección Personal", "precio": 3490, "stock": 42, "imagen": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=300&fit=crop"},
-  {"id": 35, "nombre": "Mascarilla Detección Polvos (10 pzs)", "categoria": "Protección Personal", "precio": 4990, "stock": 0, "imagen": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=300&fit=crop"},
-  {"id": 36, "nombre": "Disco de Corte Metal 4.5\"", "categoria": "Accesorios", "precio": 1290, "stock": 110, "imagen": "https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=400&h=300&fit=crop"},
-  {"id": 37, "nombre": "Broca para Concreto 8mm", "categoria": "Accesorios", "precio": 1890, "stock": 45, "imagen": "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=400&h=300&fit=crop"},
-  {"id": 38, "nombre": "Espátula de Acero Inoxidable 3\"", "categoria": "Herramientas Manuales", "precio": 1990, "stock": 33, "imagen": "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=400&h=300&fit=crop"},
-  {"id": 39, "nombre": "Formón para Madera 1/2\"", "categoria": "Herramientas Manuales", "precio": 4490, "stock": 17, "imagen": "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=400&h=300&fit=crop"},
-  {"id": 40, "nombre": "Pistola para Silicona Caliente 40W", "categoria": "Herramientas Eléctricas", "precio": 6990, "stock": 20, "imagen": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=400&h=300&fit=crop"}
+  {
+    "id": 1,
+    "nombre": "Martillo de Uña 16 oz",
+    "categoria": "Herramientas Manuales",
+    "precio": 8990,
+    "stock": 25,
+    "imagen": "https://olateferreteria.cl/wp-content/uploads/2025/01/Martillo-Carpintero-Una-Curva-16oz-TRUPER.png"
+  },
+  {
+    "id": 2,
+    "nombre": "Destornillador #2",
+    "categoria": "Herramientas Manuales",
+    "precio": 3490,
+    "stock": 39,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6PS7QafPibaoCS9zoD4cyRIF55XK3w5e347tXtn983A&s=10"
+  },
+  {
+    "id": 3,
+    "nombre": "Alicate Universal 8\"",
+    "categoria": "Herramientas Manuales",
+    "precio": 6990,
+    "stock": 18,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6BUWfGwgPa9iUyropufGqt8fYyZEvKWeOKwOJn6mlDQ&s=10"
+  },
+  {
+    "id": 4,
+    "nombre": "Llave Ajustable 10\"",
+    "categoria": "Herramientas Manuales",
+    "precio": 9990,
+    "stock": 15,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj_yYPpmZW0VJta-9ohMsYfZDNeuvfoHNzJlXmodqtqg&s=10"
+  },
+  {
+    "id": 5,
+    "nombre": "Juego de Llaves Allen 9 pzs",
+    "categoria": "Herramientas Manuales",
+    "precio": 7490,
+    "stock": 30,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShdgPoXfAfBnWNTia0R-jzM8-fpZKLWOCPrG-xLhYF3A&s=10"
+  },
+  {
+    "id": 6,
+    "nombre": "Taladro Percutor 650W",
+    "categoria": "Herramientas Eléctricas",
+    "precio": 39990,
+    "stock": 10,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEG-yZOtcEf5dHDoj6B1foojOiw7CwJQ05X07RpQR61g&s=10"
+  },
+  {
+    "id": 7,
+    "nombre": "Esmeril Angular 4.5\"",
+    "categoria": "Herramientas Eléctricas",
+    "precio": 34990,
+    "stock": 12,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXEtkO9VJwfmSndt8_5iNj7la_ojxMnpduR30d3Ysc9g&s=10"
+  },
+  {
+    "id": 8,
+    "nombre": "Sierra Caladora 550W",
+    "categoria": "Herramientas Eléctricas",
+    "precio": 29990,
+    "stock": 7,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx4RFDLf0Qtjr8XZY1-hAY6Dgjum4h1K9wEj6u24YtqA&s"
+  },
+  {
+    "id": 9,
+    "nombre": "Lijadora Orbital 200W",
+    "categoria": "Herramientas Eléctricas",
+    "precio": 24990,
+    "stock": 14,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScuWIbunANiSRzDQe-lFuljfXYS1rIyY05TebT_LwPGQ&s=10"
+  },
+  {
+    "id": 10,
+    "nombre": "Atornillador Inalámbrico 12V",
+    "categoria": "Herramientas Eléctricas",
+    "precio": 45990,
+    "stock": 0,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVlpUzmQxbIlcYN6nCCCk9qe-k_k-PuOmaEtMO2_kNJg&s=10"
+  },
+  {
+    "id": 11,
+    "nombre": "Caja de Clavos 2\" (1kg)",
+    "categoria": "Fijaciones",
+    "precio": 2990,
+    "stock": 50,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK8F0MwigXgSQU-Fxm7dQp_dKY-inEA2qymAMH09oviA&s"
+  },
+  {
+    "id": 12,
+    "nombre": "Tornillo Cobre Madera 4x40mm (100 pzs)",
+    "categoria": "Fijaciones",
+    "precio": 3990,
+    "stock": 64,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt6e8KPoTgdQoR4t9Iocxh_BEaapgYBitj_O03zPWlHg&s"
+  },
+  {
+    "id": 13,
+    "nombre": "Tarugos Multiuso 8mm (50 pzs)",
+    "categoria": "Fijaciones",
+    "precio": 1990,
+    "stock": 80,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS0bJIrwXEVjpvzrO2C2XKyY5z1GftvH8_grh_On0O6Q&s"
+  },
+  {
+    "id": 14,
+    "nombre": "Perno Coche 3/8x3\" con Tuerca",
+    "categoria": "Fijaciones",
+    "precio": 890,
+    "stock": 120,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ2vWPeHHbKx1dHEUqSuk0TKLOU0umnEMM7H4FTj5_dQ&s=10"
+  },
+  {
+    "id": 15,
+    "nombre": "Goma y Silicona Transparente 300ml",
+    "categoria": "Adhesivos y Sellantes",
+    "precio": 4290,
+    "stock": 35,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1cji2hbQIAr1Vp_C4XNHtr4Z-3bIwEsd4re7nP8ul8Q&s=10"
+  },
+  {
+    "id": 16,
+    "nombre": "Adhesivo de Contacto 250g",
+    "categoria": "Adhesivos y Sellantes",
+    "precio": 3890,
+    "stock": 22,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3qogP4EQdRliXN6gXRhTPnQeTRK6kqDKUT0olERwuoA&s=10"
+  },
+  {
+    "id": 17,
+    "nombre": "Cinta Enmascarar 24mm x 50m",
+    "categoria": "Pintura y Acabados",
+    "precio": 1490,
+    "stock": 45,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfTY02UdMiRHy208xNmrQGCEnpGKEpF_GPrYqPkzYlcA&s"
+  },
+  {
+    "id": 18,
+    "nombre": "Pintura Esmalte Sintético 1 Galón",
+    "categoria": "Pintura y Acabados",
+    "precio": 21990,
+    "stock": 11,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLNLcMGCfH3vykL0QhByLK63Aq8lq2XnIuWONXaWQwew&s=10"
+  },
+  {
+    "id": 19,
+    "nombre": "Brocha 3 Pulgadas",
+    "categoria": "Pintura y Acabados",
+    "precio": 2490,
+    "stock": 28,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ98Yc0t8C_dF8UnUaTfeTxDzTDxCFgoQHvlfqAyOjzoA&s=10"
+  },
+  {
+    "id": 20,
+    "nombre": "Rodillo Antigota 18cm",
+    "categoria": "Pintura y Acabados",
+    "precio": 3990,
+    "stock": 19,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsnQRomlNm4Fw7cFse3R_QKe9WcCxD-uh2IrLJb1_Nrw&s"
+  },
+  {
+    "id": 21,
+    "nombre": "Cerradura de Pomo para Dormitorio",
+    "categoria": "Cerrajería",
+    "precio": 8990,
+    "stock": 16,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDuyv0eMFgUAbLyj1jdSCKz5su4ldoyrO41oBt0uVsqQ&s=10"
+  },
+  {
+    "id": 22,
+    "nombre": "Candado de Bronce 40mm",
+    "categoria": "Cerrajería",
+    "precio": 5490,
+    "stock": 0,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2YJIy9i3fYu_Mu0oNUe1NgeogIrRvfO3RwHmqqhVciQ&s=10"
+  },
+  {
+    "id": 23,
+    "nombre": "Cinta Aislante Negra 20m",
+    "categoria": "Electricidad",
+    "precio": 990,
+    "stock": 90,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsiEJS4wRTQQvPRZWbRtBs0HCN4mbwETetFvX6z8WyCQ&s"
+  },
+  {
+    "id": 24,
+    "nombre": "Cable Unipolar 2.5mm (25m)",
+    "categoria": "Electricidad",
+    "precio": 18990,
+    "stock": 13,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZG_1eVhNyFIyBqqesryKQVMgotmzVh0SOa_IOyIxlmQ&s"
+  },
+  {
+    "id": 25,
+    "nombre": "Interruptor Doble Sobrepuesto",
+    "categoria": "Electricidad",
+    "precio": 2190,
+    "stock": 40,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxckag0Fo0BNW66AR67ek--GyTu1Q11Akjow7ZAw5YxQ&s"
+  },
+  {
+    "id": 26,
+    "nombre": "Enchufe Hembra Triple",
+    "categoria": "Electricidad",
+    "precio": 2990,
+    "stock": 32,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTja8Par1s2Sjr4n3nqGmJh3d0V6OSoA4g3Ze4_j8xODQ&s=10"
+  },
+  {
+    "id": 27,
+    "nombre": "Llave de Paso PVC 1/2\"",
+    "categoria": "Gasfitería",
+    "precio": 1890,
+    "stock": 50,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE2yM52v66JBJT14LXG2xZoPSSranRl6aJvNnO-QHbGg&s=10"
+  },
+  {
+    "id": 28,
+    "nombre": "Teflón de Gasfitería 3/4\"",
+    "categoria": "Gasfitería",
+    "precio": 590,
+    "stock": 100,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkSTAosodZU93LEacug4ZVE8bEwcoTY7F1i5AWim77ew&s=10"
+  },
+  {
+    "id": 29,
+    "nombre": "Sifón Lavaplatos Flexible",
+    "categoria": "Gasfitería",
+    "precio": 4990,
+    "stock": 21,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy9HLshoBkTm6EHTkg0jZCiOMN5fhp_ppEtgRZa-Fjiw&s=10"
+  },
+  {
+    "id": 30,
+    "nombre": "Flexible para Agua 40cm",
+    "categoria": "Gasfitería",
+    "precio": 2490,
+    "stock": 38,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3WpO60JZybygXTYwdL7QvESJCZqD-SjRq4nA0V_HHwA&s"
+  },
+  {
+    "id": 31,
+    "nombre": "Huincha de Medir 5 metros",
+    "categoria": "Medición",
+    "precio": 3290,
+    "stock": 27,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwa-zNgsl80PTgS7GBJVkuPEUrnjh6Sb4HmDKtdOkTjQ&s=10"
+  },
+  {
+    "id": 32,
+    "nombre": "Nivel de Burbuja 24\"",
+    "categoria": "Medición",
+    "precio": 7990,
+    "stock": 14,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvuufWIqZiicQEnXiq3v-ctJhv5inGb1prg3zK4cCA3A&s"
+  },
+  {
+    "id": 33,
+    "nombre": "Lentes de Seguridad Transparentes",
+    "categoria": "Protección Personal",
+    "precio": 1990,
+    "stock": 60,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPoBeUJq-bTJIEREFf7uHSoBStslxgFICgY3DawpYHrw&s=10"
+  },
+  {
+    "id": 34,
+    "nombre": "Guantes de Cuero Cabritilla",
+    "categoria": "Protección Personal",
+    "precio": 3490,
+    "stock": 42,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJNQyzrKjRjTg37FpXgMIDDS-762EPl032JJJPFGj3vQ&s=10"
+  },
+  {
+    "id": 35,
+    "nombre": "Mascarilla Detección Polvos (10 pzs)",
+    "categoria": "Protección Personal",
+    "precio": 4990,
+    "stock": 0,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHOqlas7YY1V_G5w2SJ9IoQmsjRmck65O7iw_NsxN-Ng&s"
+  },
+  {
+    "id": 36,
+    "nombre": "Disco de Corte Metal 4.5\"",
+    "categoria": "Accesorios",
+    "precio": 1290,
+    "stock": 110,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1F79X2lCOr34YMTgYbZtXmow1tCB5BHCWtMHCIAXmRA&s=10"
+  },
+  {
+    "id": 37,
+    "nombre": "Broca para Concreto 8mm",
+    "categoria": "Accesorios",
+    "precio": 1890,
+    "stock": 45,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbrIZ39scMwiRhhN6LUXWF0TSNhl0yRjifMr3pSaCiLg&s"
+  },
+  {
+    "id": 38,
+    "nombre": "Espátula de Acero Inoxidable 3\"",
+    "categoria": "Herramientas Manuales",
+    "precio": 1990,
+    "stock": 33,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQwmu3L1W1zG6j0_efoSEcknFtwe0lgVRzHMZF05bTeH1gg9UxQHU8iy8&s=10"
+  },
+  {
+    "id": 39,
+    "nombre": "Formón para Madera 1/2\"",
+    "categoria": "Herramientas Manuales",
+    "precio": 4490,
+    "stock": 17,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcih5fdafPq4Q9aRd1wOLFLjd8OJv6jqQX43IawDe68g&s=10"
+  },
+  {
+    "id": 40,
+    "nombre": "Pistola para Silicona Caliente 40W",
+    "categoria": "Herramientas Eléctricas",
+    "precio": 6990,
+    "stock": 20,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROGwP4ipxxSZv_KpFXO27_JNwh5QYlLRtJYYJHbpcCcA&s=10"
+  }
 ]

@@ -1,0 +1,117 @@
+{% extends 'catalogo/base.html' %}
+
+{% block title %}Compra Exitosa - Ferretería Central{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center my-5">
+    <div class="col-lg-8">
+        <!-- CONFIRMACIÓN DE COMPRA -->
+        <div class="card border-0 shadow-lg rounded-4 overflow-hidden mb-4">
+            <!-- HEADER DE ÉXITO -->
+            <div class="card-header bg-success text-white p-5 text-center">
+                <h1 class="mb-2">✅ ¡Compra Exitosa!</h1>
+                <p class="mb-0 fs-5">Tu orden ha sido procesada correctamente</p>
+            </div>
+            
+            <!-- INFORMACIÓN DE LA ORDEN -->
+            <div class="card-body p-5">
+                <!-- NÚMERO DE ORDEN -->
+                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                    <h5 class="mb-0 fw-bold">📋 Número de Orden</h5>
+                    <code class="fs-6">{{ orden.numero_orden }}</code>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+                
+                <!-- DETALLES PRINCIPALES -->
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="p-3 bg-light rounded-3">
+                            <p class="text-muted small mb-1">Fecha de Compra</p>
+                            <h6 class="fw-bold">{{ orden.fecha_creacion|date:"d/m/Y H:i" }}</h6>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-3 bg-light rounded-3">
+                            <p class="text-muted small mb-1">Estado</p>
+                            <h6 class="fw-bold">
+                                <span class="badge bg-success">{{ orden.get_estado_display }}</span>
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- TABLA DE PRODUCTOS -->
+                <h5 class="fw-bold mb-3">📦 Productos Comprados</h5>
+                <div class="table-responsive mb-4">
+                    <table class="table table-hover mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Producto</th>
+                                <th>Precio Unitario</th>
+                                <th>Cantidad</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in items %}
+                            <tr>
+                                <td><strong>{{ item.nombre_producto }}</strong></td>
+                                <td>${{ item.precio_unitario }}</td>
+                                <td>{{ item.cantidad }} u.</td>
+                                <td><strong>${{ item.obtener_subtotal }}</strong></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- RESUMEN DE TOTALES -->
+                <div class="row mb-4">
+                    <div class="col-md-6 ms-auto">
+                        <div class="card border-0 bg-light rounded-3">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>Cantidad de artículos:</span>
+                                    <strong>{{ orden.cantidad_items }}</strong>
+                                </div>
+                                <hr>
+                                <div class="d-flex justify-content-between">
+                                    <span class="fs-5 fw-bold">Total a Pagar:</span>
+                                    <span class="fs-4 text-success fw-bold">${{ orden.total }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- INFORMACIÓN DE ENVÍO -->
+                <div class="alert alert-info" role="alert">
+                    <h6 class="fw-bold mb-2">🚚 Próximos Pasos</h6>
+                    <ul class="mb-0 small">
+                        <li>Recibirás un correo de confirmación en tu email</li>
+                        <li>El envío será procesado en las próximas 24-48 horas</li>
+                        <li>Podrás rastrear tu pedido desde "Mis Órdenes"</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- BOTONES DE ACCIÓN -->
+        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+            <a href="{% url 'mis_ordenes' %}" class="btn btn-primary btn-lg fw-bold rounded-3">
+                📋 Ver Mis Órdenes
+            </a>
+            <a href="{% url 'lista' %}" class="btn btn-outline-primary btn-lg fw-bold rounded-3">
+                🏪 Seguir Comprando
+            </a>
+        </div>
+        
+        <!-- INFORMACIÓN DE CONTACTO -->
+        <div class="alert alert-secondary mt-4">
+            <p class="mb-1 small"><strong>¿Necesitas ayuda?</strong></p>
+            <p class="mb-0 small">Contacta con nuestro equipo de soporte en soporte@ferreteria.com</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

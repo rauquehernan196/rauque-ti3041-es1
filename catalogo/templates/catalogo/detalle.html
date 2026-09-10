@@ -1,19 +1,84 @@
 {% extends 'catalogo/base.html' %}
 
 {% block content %}
-<div class="row justify-content-center">
-    <div class="col-md-6">
-        <div class="card shadow border-0">
-            <div class="card-body">
-                <span class="badge bg-info text-dark mb-2">{{ producto.categoria }}</span>
-                <h2 class="card-title fw-bold mb-3">{{ producto.nombre }}</h2>
-                <hr>
-                <p class="fs-4 text-success fw-bold">Precio: ${{ producto.precio }} CLP</p>
-                <p class="fs-6"><strong>Stock en Bodega:</strong> {{ producto.stock }} unidades</p>
-                <p class="text-muted small">ID del Producto: {{ producto.id }}</p>
-                <a href="{% url 'lista' %}" class="btn btn-secondary mt-3">Volver al Catálogo</a>
+<div class="row justify-content-center my-5">
+    <div class="col-lg-8">
+        <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
+            <!-- IMAGEN DEL PRODUCTO -->
+            <img src="{{ producto.imagen }}" class="card-img-top" alt="{{ producto.nombre }}" 
+                 style="height: 400px; object-fit: cover;">
+            
+            <!-- CONTENIDO -->
+            <div class="card-body p-4">
+                <!-- CATEGORÍA -->
+                <span class="badge bg-info text-dark mb-3 fs-6">{{ producto.categoria }}</span>
+                
+                <!-- NOMBRE -->
+                <h2 class="card-title fw-bold mb-2">{{ producto.nombre }}</h2>
+                <hr class="my-3">
+                
+                <!-- PRECIO -->
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <p class="text-muted small mb-1">Precio</p>
+                        <h3 class="text-success fw-bold">\${{ producto.precio }}</h3>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="text-muted small mb-1">Stock Disponible</p>
+                        {% if producto.stock > 0 %}
+                            <h3 class="text-primary fw-bold">{{ producto.stock }} unidades</h3>
+                            <span class="badge bg-success">✅ En Stock</span>
+                        {% else %}
+                            <h3 class="text-danger fw-bold">0 unidades</h3>
+                            <span class="badge bg-danger">❌ Agotado</span>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <!-- INFO ADICIONAL -->
+                <div class="alert alert-light border border-info p-3 mb-4">
+                    <p class="mb-0"><strong>ID del Producto:</strong> <code>#{{ producto.id }}</code></p>
+                </div>
+                
+                <!-- ACCIONES -->
+                {% if producto.stock > 0 %}
+                    <form method="post" action="{% url 'agregar_carrito' producto.id %}" class="mb-3">
+                        {% csrf_token %}
+                        <div class="row g-2">
+                            <div class="col-md-4">
+                                <label for="cantidad" class="form-label small fw-bold">Cantidad:</label>
+                                <input type="number" id="cantidad" name="cantidad" min="1" max="{{ producto.stock }}" 
+                                       value="1" class="form-control form-control-lg">
+                            </div>
+                            <div class="col-md-8 d-flex align-items-end">
+                                <button type="submit" class="btn btn-success btn-lg w-100 fw-bold">
+                                    🛒 Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                {% else %}
+                    <div class="alert alert-danger mb-3" role="alert">
+                        <strong>⚠️ Producto Agotado</strong>
+                        <p class="mb-0 mt-2">Este producto no está disponible en este momento. Vuelve más tarde.</p>
+                    </div>
+                {% endif %}
+                
+                <!-- VOLVER -->
+                <a href="{% url 'lista' %}" class="btn btn-outline-secondary btn-lg w-100 fw-bold">
+                    ← Volver al Catálogo
+                </a>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+    .card-img-top {
+        transition: transform 0.3s ease;
+    }
+    .card:hover .card-img-top {
+        transform: scale(1.05);
+    }
+</style>
 {% endblock %}

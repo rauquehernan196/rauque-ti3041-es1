@@ -1,0 +1,74 @@
+{% extends 'catalogo/base.html' %}
+
+{% block title %}Iniciar Sesión - Ferretería Central{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center align-items-center min-vh-100">
+    <div class="col-md-6 col-lg-5">
+        <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+            <!-- ENCABEZADO DEL FORMULARIO -->
+            <div class="card-header bg-dark text-white p-5">
+                <h2 class="mb-0 fw-bold text-center">🔐 Iniciar Sesión</h2>
+            </div>
+            
+            <!-- CUERPO DEL FORMULARIO -->
+            <div class="card-body p-5">
+                <form method="post" novalidate>
+                    {% csrf_token %}
+                    
+                    <!-- CAMPO: USERNAME -->
+                    <div class="mb-4">
+                        <label for="id_username" class="form-label fw-bold">Nombre de Usuario</label>
+                        {{ form.username }}
+                    </div>
+                    
+                    <!-- CAMPO: PASSWORD -->
+                    <div class="mb-4">
+                        <label for="id_password" class="form-label fw-bold">Contraseña</label>
+                        {{ form.password }}
+                    </div>
+                    
+                    <!-- BOTÓN DE ENVÍO -->
+                    <button type="submit" class="btn btn-primary btn-lg w-100 rounded-3 fw-bold mb-3">
+                        Iniciar Sesión
+                    </button>
+                </form>
+                
+                <!-- SEPARADOR -->
+                <hr class="my-4">
+                
+                <!-- ENLACE A REGISTRO -->
+                <p class="text-center text-muted mb-0">
+                    ¿No tienes cuenta? 
+                    <a href="{% url 'registro' %}" class="text-primary text-decoration-none fw-bold">
+                        Regístrate aquí
+                    </a>
+                </p>
+                
+                <!-- ENLACE A LANDING -->
+                <p class="text-center mt-3">
+                    <a href="{% url 'landing' %}" class="text-secondary text-decoration-none small">
+                        ← Volver al inicio
+                    </a>
+                </p>
+            </div>
+        </div>
+        
+        <!-- INFORMACIÓN ADICIONAL -->
+        <div class="mt-4 p-4 bg-light rounded-4">
+            <h6 class="fw-bold mb-3">👤 Usuarios de demostración:</h6>
+            <p class="small text-muted mb-2">
+                <strong>Usuario Normal:</strong><br>
+                Usuario: usuario1<br>
+                Contraseña: Password123!
+            </p>
+            <p class="small text-muted mb-0">
+                <strong>Administrador:</strong><br>
+                Usuario: admin<br>
+                Contraseña: Admin123!
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

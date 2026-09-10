@@ -1,0 +1,171 @@
+{% extends 'catalogo/base.html' %}
+
+{% block title %}Panel de Administración - Ferretería Central{% endblock %}
+
+{% block content %}
+<div class="my-5">
+    <!-- ENCABEZADO -->
+    <div class="mb-5">
+        <h1 class="display-5 fw-bold mb-2">⚙️ Panel de Administración</h1>
+        <p class="lead text-muted">Gestiona el inventario, usuarios y estadísticas</p>
+    </div>
+    
+    <!-- TARJETAS DE ESTADÍSTICAS -->
+    <div class="row g-4 mb-5">
+        <div class="col-md-6 col-lg-3">
+            <div class="card border-0 shadow-sm rounded-4 h-100">
+                <div class="card-body text-center">
+                    <h2 class="text-primary fw-bold mb-2">{{ total_usuarios }}</h2>
+                    <p class="text-muted mb-0">Usuarios Registrados</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3">
+            <div class="card border-0 shadow-sm rounded-4 h-100">
+                <div class="card-body text-center">
+                    <h2 class="text-success fw-bold mb-2">{{ total_productos }}</h2>
+                    <p class="text-muted mb-0">Productos en Catálogo</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3">
+            <div class="card border-0 shadow-sm rounded-4 h-100">
+                <div class="card-body text-center">
+                    <h2 class="text-warning fw-bold mb-2">
+                        {% widthratio total_productos 40 100 %}%
+                    </h2>
+                    <p class="text-muted mb-0">Cobertura</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3">
+            <div class="card border-0 shadow-sm rounded-4 h-100">
+                <div class="card-body text-center">
+                    <h2 class="text-info fw-bold mb-2">✓</h2>
+                    <p class="text-muted mb-0">Sistema Activo</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- SECCIÓN: GESTIÓN DE USUARIOS -->
+    <div class="card border-0 shadow-lg rounded-4 mb-5">
+        <div class="card-header bg-dark text-white p-4">
+            <h4 class="mb-0 fw-bold">👥 Gestión de Usuarios</h4>
+        </div>
+        <div class="card-body p-4">
+            {% if usuarios %}
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Usuario</th>
+                                <th>Correo</th>
+                                <th>Rol</th>
+                                <th>Fecha de Registro</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for usuario in usuarios %}
+                            <tr>
+                                <td><strong>{{ usuario.id }}</strong></td>
+                                <td>{{ usuario.get_full_name|default:"Sin nombre" }}</td>
+                                <td>
+                                    <code>{{ usuario.username }}</code>
+                                </td>
+                                <td>{{ usuario.email }}</td>
+                                <td>
+                                    {% if usuario.perfil.es_admin %}
+                                        <span class="badge bg-danger">Administrador</span>
+                                    {% else %}
+                                        <span class="badge bg-secondary">Usuario Normal</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <small class="text-muted">
+                                        {{ usuario.date_joined|date:"d/m/Y" }}
+                                    </small>
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary" disabled>
+                                        Ver Detalle
+                                    </button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p class="text-muted text-center mb-0">No hay usuarios registrados.</p>
+            {% endif %}
+        </div>
+    </div>
+    
+    <!-- SECCIÓN: GESTIÓN DE INVENTARIO -->
+    <div class="card border-0 shadow-lg rounded-4">
+        <div class="card-header bg-dark text-white p-4">
+            <h4 class="mb-0 fw-bold">📦 Gestión de Inventario</h4>
+        </div>
+        <div class="card-body p-4">
+            {% if productos %}
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Categoría</th>
+                                <th>Precio</th>
+                                <th>Stock</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for producto in productos %}
+                            <tr>
+                                <td><strong>{{ producto.id }}</strong></td>
+                                <td>{{ producto.nombre }}</td>
+                                <td>
+                                    <small class="badge bg-info">{{ producto.categoria }}</small>
+                                </td>
+                                <td>
+                                    <strong>${{ producto.precio }}</strong>
+                                </td>
+                                <td>
+                                    <strong class="{% if producto.stock > 0 %}text-success{% else %}text-danger{% endif %}">
+                                        {{ producto.stock }}
+                                    </strong>
+                                </td>
+                                <td>
+                                    {% if producto.stock > 0 %}
+                                        <span class="badge bg-success">En Stock</span>
+                                    {% else %}
+                                        <span class="badge bg-danger">Agotado</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-warning" disabled>
+                                        Editar
+                                    </button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p class="text-muted text-center mb-0">No hay productos en el catálogo.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
